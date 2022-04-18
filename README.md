@@ -159,12 +159,12 @@ Instalace do virtual environment appdaemon: ```export CFLAGS=-fcommon``` ```pip3
 - Přidání uživatele:```sudo mosquitto_passwd -c users.passwd <user name-> homeassistant>```
 - ```cd etc/mosquitto/conf.d```
 - ```sudo nano user.conf```
-- - Přidání do souboru:
-- - - ```allow_anonymous false```
-- - - ```password_file /etc/mosquitto/users.passwd```
-- - - ```listener 1883```
+  - Přidání do souboru:
+    - ```allow_anonymous false```
+    - ```password_file /etc/mosquitto/users.passwd```
+    - ```listener 1883```
 - Založit službu/soubor: ```sudo nano -w /etc/systemd/system/mosquitto.service```
-- - Vložit:
+  - Vložit:
 ```
 [Unit]
 Description=Mosquitto MQTT Broker daemon
@@ -183,8 +183,8 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 ```
-- - Reload systemd: ```sudo systemctl --system daemon-reload```
-- - Povolení služby: ```sudo systemctl enable mosquitto.service```
+- Reload systemd: ```sudo systemctl --system daemon-reload```
+- Povolení služby: ```sudo systemctl enable mosquitto.service```
 - Úprava služby Home Assistant (spuštění až za Mosquittem):
 ```
 [Unit]
@@ -200,8 +200,8 @@ ExecStart=/srv/homeassistant/bin/hass -c "/home/%i/.homeassistant"
 [Install]
 WantedBy=multi-user.target
 ```
-- - Reload systemd: ```sudo systemctl --system daemon-reload```
-- - Spuštění služby: ```sudo systemctl start mosquitto.service``` 
+- Reload systemd: ```sudo systemctl --system daemon-reload```
+- Spuštění služby: ```sudo systemctl start mosquitto.service``` 
 
 ## Teplotní predikce
 - Instalace balíčku **pandas**
