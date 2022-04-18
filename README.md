@@ -236,3 +236,8 @@ source bin/activate
     - ```psql```
     - ```ALTER USER appdaemon WITH SUPERUSER;``` (přidání práv pro čtení dat)
     - ```ALTER USER appdaemon WITH encrypted password '<Heslo>';```
+## Přidání částí v Home Assistant
+- Přidat integrace
+  - Scheduler
+  - MQTT
+  - Met.no
