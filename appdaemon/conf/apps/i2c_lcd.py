@@ -4,6 +4,7 @@ import i2c_lcd_driver
 class I2CLCD(hass.Hass):
 
   def initialize(self):
+    self.listen_state(self.trigger, "sensor.hot_water_tank_top")
     self.listen_state(self.trigger, "sensor.hot_water_tank_middle")
     self.listen_state(self.trigger, "sensor.hot_water_tank_bottom")
     self.listen_state(self.trigger, "switch.blue_led")
@@ -37,7 +38,9 @@ class I2CLCD(hass.Hass):
       first_floor_lcd.lcd_display_string("Cidlo 3: " + hot_water_tank_bottom_temperature + " " + chr(0) + "C", 2)
 
       second_floor_lcd.lcd_display_string("  Zatop v krbu!", 1)
-      second_floor_lcd.lcd_display_string("Cidlo 3: " + hot_water_tank_bottom_temperature + " " + chr(0) + "C", 2)
+      second_floor_lcd.lcd_display_string("Cidlo 1: " + hot_water_tank_top_temperature + " " + chr(0) + "C", 2)
+      second_floor_lcd.lcd_display_string("Cidlo 2: " + hot_water_tank_middle_temperature + " " + chr(0) + "C", 3)
+      second_floor_lcd.lcd_display_string("Cidlo 3: " + hot_water_tank_bottom_temperature + " " + chr(0) + "C", 4)
     else:
       first_floor_lcd.lcd_load_custom_chars(degree)
       second_floor_lcd.lcd_load_custom_chars(degree)
@@ -51,8 +54,9 @@ class I2CLCD(hass.Hass):
       first_floor_lcd.lcd_display_string("Cidlo 2: " + hot_water_tank_middle_temperature + " " + chr(0) + "C", 1)
       first_floor_lcd.lcd_display_string("Cidlo 3: " + hot_water_tank_bottom_temperature + " " + chr(0) + "C", 2)
 
-      second_floor_lcd.lcd_display_string("Cidlo 2: " + hot_water_tank_middle_temperature + " " + chr(0) + "C", 1)
-      second_floor_lcd.lcd_display_string("Cidlo 3: " + hot_water_tank_bottom_temperature + " " + chr(0) + "C", 2)
+      second_floor_lcd.lcd_display_string("Cidlo 1: " + hot_water_tank_top_temperature + " " + chr(0) + "C", 1)
+      second_floor_lcd.lcd_display_string("Cidlo 2: " + hot_water_tank_middle_temperature + " " + chr(0) + "C", 2)
+      second_floor_lcd.lcd_display_string("Cidlo 3: " + hot_water_tank_bottom_temperature + " " + chr(0) + "C", 3)
 
       
 
